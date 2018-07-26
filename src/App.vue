@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>{{ title }}</h1>
+    <h1><i class="el-icon-mobile-phone"></i>{{ title }}</h1>
     <el-row type="flex" justify="space-around">
       <el-col :span="11" class="col-bg">
         <drop class="drop" @drop="handleDrop('team1', ...arguments)">
@@ -35,7 +35,7 @@
 export default {
   name: 'app',
   data: () => ({
-    title: 'Goita Score Calculator',
+    title: 'Goita Score',
     score: {
       team1: 0,
       team2: 0
@@ -101,16 +101,26 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
-  color: #42b983;
+span {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: normal;
+  color: #2c3e50;
+  font-size: 24px;
 }
 .el-row {
   margin-bottom: 20px;
 }
 .el-col {
+  background-color: #F2F6FC;
   border-radius: 4px;
   padding-left: 4px;
   padding-right: 4px;
+}
+.el-button.is-circle {
+  padding: 20px;
+  box-shadow: 1px 1px 1px #999;
 }
 .grid-content {
   border-radius: 4px;
@@ -118,12 +128,11 @@ a {
 }
 .col-bg {
   padding: 20px 0;
-  background-color: #f9fafc;
 }
 .drag {
   display: inline-block;
 }
 .drag+.drag {
-  margin-left: 10px;
+  margin-left: 20px;
 }
 </style>
