@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: 'dist/',
     filename: 'build.js'
   },
   module: {
@@ -39,7 +39,10 @@ module.exports = {
       },
       { 
         test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/, 
-        loader: 'file-loader' 
+        loader: 'file-loader',
+        options: {
+          name: "fonts/[name].[ext]"
+        }
       }
     ]
   },
