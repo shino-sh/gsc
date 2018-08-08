@@ -20,6 +20,7 @@
     display: inline-block;
     list-style-type: none;
     width: 54px;
+    height: 36px;
     background: #FFF;
     padding: 8px 0 16px 0;
     margin-bottom: 1px;
