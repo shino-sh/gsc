@@ -1,16 +1,20 @@
 <template>
   <div id="app">
-    <h1><i class="el-icon-mobile-phone"></i>{{ title }}</h1>
-    <el-row type="flex" justify="space-around">
-      <el-col v-for="team in teams" :key="team.id" :span="11" class="col-bg">
-        <score-board v-bind="team" :maxScore="maxScore" :isGameSet="isGameSet" @add-score="handleAddScore"></score-board>
-      </el-col>
-    </el-row>
-    <el-row style="margin-top: 40px;">
-      <drag v-for="piece in pieces" :key="piece.id" :transfer-data="piece.point" class="drag">
-        <piece :name="piece.name"></piece>
-      </drag>
-    </el-row>
+    <el-header>
+      <h1 style="text-align: left;"><i class="el-icon-mobile-phone"></i>{{ title }}</h1>       
+    </el-header>
+    <el-main>
+      <el-row type="flex" justify="space-around">
+        <el-col v-for="team in teams" :key="team.id" :span="11" class="col-bg">
+          <score-board v-bind="team" :maxScore="maxScore" :isGameSet="isGameSet" @add-score="handleAddScore"></score-board>
+        </el-col>
+      </el-row>
+      <el-row style="margin-top: 40px;">
+        <drag v-for="piece in pieces" :key="piece.id" :transfer-data="piece.point" class="drag">
+          <piece :name="piece.name"></piece>
+        </drag>
+      </el-row>
+    </el-main>
   </div>
 </template>
 
@@ -18,7 +22,7 @@
   export default {
     name: 'app',
     data: () => ({
-      title: 'Goita Score',
+      title: 'Goita Scoreboard',
       teams: [
         { id: 1, name: 'Team 1', score: 0 },
         { id: 2, name: 'Team 2', score: 0 },
@@ -61,7 +65,6 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 20px;
   }
   h1, h2 {
     font-weight: normal;
@@ -107,5 +110,12 @@
   }
   .drag+.drag {
     margin-left: 30px;
+  }
+</style>
+
+<style>
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
   }
 </style>
